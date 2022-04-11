@@ -1,7 +1,3 @@
 library fast_strings;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/fast_strings_base.dart';
