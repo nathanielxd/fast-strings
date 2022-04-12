@@ -1,39 +1,49 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Fast Strings
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Extremely straight-forward string management system for Flutter.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Load a **.yaml** file from your Flutter asset directory and use the `Strings` class to access your data.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add this package to your dependencies.
 
-## Usage
+`fast_strings: ^1.0.0`
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+Initialize this package in your main.dart:
 
 ```dart
-const like = 'sample';
+void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    // Put your file path in here. Do not forget to include it into your pubspec.
+    await Strings.initialize('assets/strings_en.yaml');
+    runApp(App());
+}
+```
+
+## Usage
+ 
+.yaml file:
+
+ ```yaml
+ welcome:
+    hello: Hello, welcome to my app!
+    description: This app is awesome.
+    presentation:
+        - It features a lot of cool stuff
+        - Is epic over all
+ ```
+
+Flutter app:
+
+```dart
+Text(Strings.data['welcome']['hello'])
+
+Text(Strings.data['welcome']['presentation'][index])
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Really simple and easy to use. Next update will include a way to provide $variables.

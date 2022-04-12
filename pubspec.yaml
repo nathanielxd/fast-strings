@@ -1,7 +1,7 @@
 name: fast_strings
 description: A new Flutter package project.
 version: 0.0.1
-homepage: null
+homepage: https://github.com/nathanielxd/fast-strings
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
